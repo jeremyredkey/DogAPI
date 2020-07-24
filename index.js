@@ -10,25 +10,25 @@
 'use strict';
 
 function getDogImage() {
-  let userNum = $('#userInput').val();
-
+  let userNum = $('#userInput').val()
+  let dogBreed = $('#dogBreed').val()
+  console.log(dogBreed)
   console.log(userNum)
-const targetUrl = `https://dog.ceo/api/breeds/image/random/${userNum}`;
+const targetUrl = `https://dog.ceo/api/breed/${dogBreed}/images/random/${userNum}`;
   fetch(targetUrl)
      .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
      .catch(error => console.log(error));
-     console.log(targetUrl)
 }
 
 function displayResults(responseJson) {
-
+  
 let imgArr = responseJson.message;
 console.log(imgArr)
  for (let i = 0; i < imgArr.length; i++) {
   //replace the existing image with the new one
-   $('.results-img').append(
+   $('.results').append(
    `<img src="${imgArr[i]}" class="results-img">`
   )
  }
@@ -36,6 +36,13 @@ console.log(imgArr)
   //display the results section
   $('.results').removeClass('hidden');
 }
+$('#undo').click(function undoButton(){
+  $('.results-img').remove();
+
+  $('.results').addClass('hidden');
+
+})
+
 
 function watchForm() {
   $('form').submit(event => {

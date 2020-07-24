@@ -18,3 +18,7 @@
   .results-img {
       max-width: 500px;
   }  
+
+  select {
+    text-transform: capitalize;
+  }
