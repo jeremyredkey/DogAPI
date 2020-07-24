@@ -11,7 +11,7 @@
 
 function getDogImage() {
   let userNum = $('#userInput').val()
-  let dogBreed = $('#dogBreed').val()
+  let dogBreed = $('#dogBreed').val().toLowerCase()
   console.log(dogBreed)
   console.log(userNum)
 const targetUrl = `https://dog.ceo/api/breed/${dogBreed}/images/random/${userNum}`;
@@ -35,6 +35,7 @@ console.log(imgArr)
 
   //display the results section
   $('.results').removeClass('hidden');
+  $('.message').removeClass('hidden');
 }
 $('#undo').click(function undoButton(){
   $('.results-img').remove();

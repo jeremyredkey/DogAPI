@@ -15,8 +15,10 @@
     display: none;
   }
 
+
   .results-img {
       max-width: 500px;
+      display: block;
   }  
 
   select {
